@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FreeHDWallpapers</title>
+  <meta name="description" content="Download free HD wallpapers for phone and desktop. Anime, cars, dark, minimal and more.">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, sans-serif; }
+    body { background: #0f0f0f; color: #fff; }
+
+    header {
+      text-align: center;
+      padding: 25px 15px;
+      background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+      border-bottom: 1px solid #222;
+    }
+
+    header h1 { font-size: 2.2rem; letter-spacing: 1px; }
+    header p { color: #aaa; margin-top: 6px; }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      padding: 12px;
+      background: #111;
+      border-bottom: 1px solid #222;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: #ccc;
+      text-decoration: none;
+      padding: 6px 12px;
+      border-radius: 20px;
+      transition: 0.2s;
+      font-size: 0.9rem;
+    }
+
+    nav a:hover {
+      background: #00adb5;
+      color: #fff;
+    }
+
+    .container { padding: 20px; max-width: 1200px; margin: auto; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: #1a1a1a;
+      border-radius: 14px;
+      overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+    }
+
+    .card img {
+      width: 100%;
+      display: block;
+    }
+
+    .card .info {
+      padding: 10px;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    .download-btn {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 7px 14px;
+      background: #00adb5;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      transition: 0.2s;
+      cursor: pointer;
+    }
+
+    .download-btn:hover { background: #019aa1; }
+
+    .count { color: #aaa; margin-top: 5px; font-size: 0.8rem; }
+
+    footer {
+      text-align: center;
+      padding: 18px;
+      color: #777;
+      font-size: 0.9rem;
+      border-top: 1px solid #222;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>FreeHDWallpapers</h1>
+    <p>Download free HD wallpapers for phone & desktop</p>
+  </header>
+
+  <nav>
+    <a href="#">All</a>
+    <a href="#">Anime</a>
+    <a href="#">Cars</a>
+    <a href="#">Minimal</a>
+    <a href="#">Dark</a>
+    <a href="#">Nature</a>
+  </nav>
+
+  <div class="container">
+    <div class="grid">
+
+      <!-- Wallpaper Card 1 -->
+      <div class="card">
+        <img src="https://picsum.photos/400/700?random=1" alt="Wallpaper">
+        <div class="info">
+          <a class="download-btn" href="https://picsum.photos/1080/1920?random=1" onclick="increaseCount(1)">Download</a>
+          <div class="count" id="count1">Downloads: 0</div>
+        </div>
+      </div>
+
+      <!-- Wallpaper Card 2 -->
+      <div class="card">
+        <img src="https://picsum.photos/400/700?random=2" alt="Wallpaper">
+        <div class="info">
+          <a class="download-btn" href="https://picsum.photos/1080/1920?random=2" onclick="increaseCount(2)">Download</a>
+          <div class="count" id="count2">Downloads: 0</div>
+        </div>
+      </div>
+
+      <!-- Wallpaper Card 3 -->
+      <div class="card">
+        <img src="https://picsum.photos/400/700?random=3" alt="Wallpaper">
+        <div class="info">
+          <a class="download-btn" href="https://picsum.photos/1080/1920?random=3" onclick="increaseCount(3)">Download</a>
+          <div class="count" id="count3">Downloads: 0</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <footer>
+    © 2026 FreeHDWallpapers. Free for personal use.
+  </footer>
+
+  <script>
+    function increaseCount(id) {
+      let key = "wallpaper_" + id;
+      let count = localStorage.getItem(key);
+      count = count ? parseInt(count) + 1 : 1;
+      localStorage.setItem(key, count);
+      document.getElementById("count" + id).innerText = "Downloads: " + count;
+    }
+
+    function loadCounts() {
+      for (let i = 1; i <= 3; i++) {
+        let key = "wallpaper_" + i;
+        let count = localStorage.getItem(key) || 0;
+        document.getElementById("count" + i).innerText = "Downloads: " + count;
+      }
+    }
+
+    loadCounts();
+  </script>
+</body>
+</html>
