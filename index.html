@@ -113,7 +113,14 @@ font-size:14px;
 <script>
 
 function download(img){
-window.open(img);
+let link = document.createElement("a");
+link.href = img;
+link.download = img;
+document.body.appendChild(link);
+link.click();
+document.body.removeChild(link);
+
+}
 }
 
 function searchWallpaper(){
