@@ -25,6 +25,12 @@ font-size:16px;
 cursor:pointer;
 }
 
+#search{
+padding:10px;
+width:250px;
+margin-top:20px;
+}
+
 </style>
 </head>
 
@@ -32,17 +38,39 @@ cursor:pointer;
 
 <h1>Free Wallpapers</h1>
 
-<img id="wallpaper" src="wallpapers/wall1.jpg">
+<input type="text" id="search" placeholder="Search wallpapers..." onkeyup="searchWallpaper()">
 
+<div id="gallery">
+
+<img src="wallpapers/wall1.jpg" class="wallpaper">
 <br>
+<button onclick="download('wallpapers/wall1.jpg')">Download</button>
 
-<button onclick="download()">Download</button>
+</div>
 
 <script>
 
-function download(){
-let img = document.getElementById("wallpaper").src;
+function download(img){
 window.open(img);
+}
+
+function searchWallpaper(){
+
+let input = document.getElementById("search").value.toLowerCase();
+let images = document.getElementsByClassName("wallpaper");
+
+for(let i=0;i<images.length;i++){
+
+let name = images[i].src.toLowerCase();
+
+if(name.includes(input)){
+images[i].style.display="block";
+}else{
+images[i].style.display="none";
+}
+
+}
+
 }
 
 </script>
