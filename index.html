@@ -7,7 +7,7 @@
 
 body{
 font-family: Arial;
-background:linear-gradient(135deg,#0f0f0f,#1a1a2e);
+background:#000;
 color:white;
 text-align:center;
 margin:0;
@@ -15,8 +15,10 @@ margin:0;
 
 h1{
 margin-top:20px;
-font-size:40px;
-letter-spacing:2px;
+font-size:42px;
+letter-spacing:3px;
+color:#d9a3ff;
+text-shadow:0 0 10px #b84cff,0 0 20px #ff4dff;
 }
 
 #search{
@@ -27,6 +29,9 @@ border-radius:25px;
 border:none;
 outline:none;
 font-size:16px;
+background:#111;
+color:white;
+box-shadow:0 0 10px #b84cff;
 }
 
 #gallery{
@@ -37,16 +42,16 @@ padding:30px;
 }
 
 .wallpaper-card{
-background:#1b1b2f;
+background:#0b0b0b;
 padding:12px;
 border-radius:12px;
 transition:0.3s;
-box-shadow:0 0 10px rgba(0,0,0,0.6);
+box-shadow:0 0 10px #7a00ff;
 }
 
 .wallpaper-card:hover{
 transform:scale(1.05);
-box-shadow:0 0 15px #00ffff;
+box-shadow:0 0 15px #ff4dff,0 0 30px #b84cff;
 }
 
 .wallpaper-card img{
@@ -55,26 +60,29 @@ border-radius:10px;
 }
 
 button{
-padding:10px 18px;
+padding:10px 20px;
 margin-top:10px;
 cursor:pointer;
 border:none;
 border-radius:20px;
-background:#00ffff;
-color:black;
+background:#7a00ff;
+color:white;
 font-weight:bold;
 transition:0.3s;
+box-shadow:0 0 10px #ff4dff,0 0 20px #b84cff;
 }
 
 button:hover{
-background:#00ff9d;
+background:#b84cff;
+box-shadow:0 0 15px #ff4dff,0 0 30px #b84cff;
 }
 
 footer{
 margin-top:30px;
 padding:15px;
-background:#111;
+background:#050505;
 font-size:14px;
+color:#d9a3ff;
 }
 
 </style>
@@ -113,6 +121,7 @@ font-size:14px;
 <script>
 
 function download(img){
+
 let link = document.createElement("a");
 link.href = img;
 link.download = img;
@@ -121,7 +130,8 @@ link.click();
 document.body.removeChild(link);
 
 }
-}
+
+
 
 function searchWallpaper(){
 
@@ -133,7 +143,7 @@ for(let i=0;i<cards.length;i++){
 let img=cards[i].getElementsByTagName("img")[0].src.toLowerCase();
 
 if(img.includes(input)){
-cards[i].style.display="block";
+cards[i].style.display="";
 }else{
 cards[i].style.display="none";
 }
