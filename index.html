@@ -2,7 +2,9 @@
 <html>
 <head>
 <title>AuraWallsHD</title>
-
+  
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
 <style>
 
 body{
@@ -83,6 +85,32 @@ padding:15px;
 background:#050505;
 font-size:14px;
 color:#d9a3ff;
+}
+  @media (max-width:600px){
+
+h1{
+font-size:28px;
+}
+
+#search{
+width:80%;
+}
+
+#gallery{
+grid-template-columns:repeat(2,1fr);
+gap:15px;
+padding:15px;
+}
+
+.wallpaper-card{
+padding:8px;
+}
+
+button{
+padding:8px 14px;
+font-size:14px;
+}
+
 }
 
 </style>
